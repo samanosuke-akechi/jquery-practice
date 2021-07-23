@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery-Test-2</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <button class="sample-btn">Click me</button>
+    </div>
+    
+    <script>
+      $(function() {
+        $(".sample-btn").on({
+          mousedown: function() {
+            $(this).addClass("active");
+            $(".active").css({
+              backgroundColor: "rgb(223, 22, 223)",
+              color: "rgb(184, 184, 3)"
+            })
+          },
+          mouseup: function() {
+            $(this).removeClass("active");
+            $(this).css({
+              color: "white",
+              backgroundColor: "#3498DB"
+            })
+          },
+          mouseover: function() {
+            $(this).addClass("opacity");
+            $(".opacity").css({
+              opacity: "0.8",
+              width: "100%"
+            });
+          },
+          mouseout: function() {
+            $(this).removeClass("opacity");
+            $(this).css({
+              opacity: "",
+              width: "300px"
+            });
+          }
+        });
+        $(".sample-btn").css({
+          color: "white",
+          backgroundColor: "#3498DB",
+          textAlign: "center",
+          width: "300px",
+          height: "100px",
+          border: "none",
+          borderRadius: "30px",
+          margin: "auto",
+          transition: "1s"
+        });
+      });
+    </script>
+  </body>
+</html>

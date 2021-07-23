@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery-Test-5</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery-Color -->
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <style>
+      div {
+        margin: 10px 0 0 10px;
+      }
+      
+      .circle {
+        background-color: #3498db;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position: relative;
+        display: none;
+        border: 1px solid #664403;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+    </div>
+    
+    <script>
+      $(function() {
+        // .eachは複数あるjQuery要素全てに順に処理を行う関数。iは番号。
+        $(".circle").each(function(i) {
+          $(this).css({
+            top: 20 * i,
+            display: "inline-block"
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery-Practice-2</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <!-- イベントをトリガーとして複数登録する場合、次の記述が使える -->
+  <!-- $("セレクタ").on("イベント1 イベント2 イベント3", function() {}); -->
+  <!-- .on()関数を使うと一度にイベントを複数登録できる。 -->
+  <body>
+    以下のボタンをクリックまたはフォーカスすることで activeクラスが付与される。
+    <button class="target" placeholder="">Button</button>
+    
+    <input type="text" class="target2" placeholder="keydownでactiveクラスが付加され、keyupでactiveクラスが外れる">
+    
+    <script>
+      $(function() {
+        // この例では2つのイベントをトリガーとして登録している。
+        // clickイベントまたはfocusイベントが発生したとき、要素にactiveクラスを付加する。
+        $(".target").on("click focus", function() {
+          $(this).addClass("active");
+          $(this).css("backgroundColor", "red");
+        });
+      });
+
+      $(function() {
+        // この例では複数のイベントに対してそれぞれの処理が行われる。
+        $(".target2").on({
+          keydown: function() {
+            $(this).addClass("active");
+            $(this).css("color", "red");
+          },
+          keyup: function() {
+            $(this).removeClass("active");
+            $(this).css("color", "black");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

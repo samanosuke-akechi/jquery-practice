@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery Curriculum CodeShip</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <style>
+    .target2 {
+      background-color: red;
+    }
+    .target2.active {
+      background-color: blue;
+    }
+  </style>
+  <body>
+    <p class="target">mouseoverでクラス名に"active"が着いたり外れたりするよ</p>
+
+    <div class="target2">target1</div>
+    <div class="target2">target2</div>
+    <div class="target2">target3</div>
+    <div class="target2">target4</div>
+    
+    <script>
+      // イベント
+      // トリガーのセット
+        /* $("セレクタ"),イベント名(function() {
+          処理内容
+        }) */
+
+        // 以下、実例
+          // targetクラスがついた要素がmouseoverされたら、その要素がactiveクラスを持っていなければその要素にactiveクラスを付加し、持っていれば除去するプログラム
+          $(function() {
+            $(".target").mouseover(function() {
+              // toggleClass(className):選択した要素が指定したクラスを持っていれば除去し、持っていなければ付加するメソッド
+              $(this).toggleClass("active");
+              // 関連メソッド
+              // addClass(className) => クラス名を要素に与える。すでにそのクラス名を持っていたら何も起こらない。
+              // removeClass(className) => クラス名を要素から削除する。
+            })
+          })
+
+      // $(this)
+          // イベントがトリガー(発火)したとき、内部の処理で要素の選択を $(this) とすると、targetクラスが着いている要素の内、mouseoverイベントであればmouseoverされた要素のみを選択できる。
+            // 下記のコードの場合、セレクタでtarget2を取得し、それに対し.mouseover()関数を定義すると、target2というクラス名が振られている要素のいずれかにマウスを重ねると、target2クラスを持つ全てのタグにactiveクラスが追加される。
+            // $(function() {
+            //   $(".target2").mouseover(function() {
+            //     $(".target2").addClass("active");
+            //   });
+            // });
+          
+            // 今度はfunction({})の中で再度$(this)と取得する。そしてどれか一つの要素に対してマウスを重ねると、実際にイベントを発火した要素のみにactiveクラスが追加される。
+            // また、以下の通りcssを書くか別途styleシートなどにcssを書くことで、初期状態ではdivの背景色は赤く、マウスを重ねると重ねた要素の色が青に変化する。
+            $(function() {
+              $(".target2").mouseover(function() {
+                $(this).addClass("active");
+                // $(".target2.active").css("backgroundColor", "blue");
+              });
+              // $(".target2").css("backgroundColor", "red");
+            });
+
+          // イベントを起こした対象がそのセレクタ要素全てなのか、操作した個体だけなのかを判断してセレクトすると良い。
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery-Practice-3</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery-Color -->
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <style>
+      .sample-kw {
+        position: relative;
+        }
+
+      .sample-kw div {
+        position: absolute;
+        color: white;
+        background-color: #3498db;
+        height: 10px;
+        width: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sample-kw">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    
+    <script>
+      $(function() {
+        let $container = $(".sample-kw");
+        let $contents = $container.find("div");
+        let length = $(".sample-kw div").length;  // クラス名.sample-kwのdiv配下のdiv要素の総数を取得 => 15
+        $container.css({height: (length * 10) + "px"});
+        for (let i = 0; i < length; i ++) {
+          console.log(i);
+          $contents.eq(i).css({  // .eq() は複数ある要素の中から特定の順番のもののみを操作するときに使用する。1番目にある要素なら0, 2番目にある要素なら1を引数に指定する。
+            top: i * "10",
+            left: i * "10"
+          });
+        };
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery-Test-4</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery-Color -->
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <style>
+      .btn {
+        width: 80px;
+        border-radius: 4px;
+        font-size: 1em;
+        line-height: 1.25;
+        border: 1px solid transparent;
+        padding: .5rem 1rem;
+        cursor: pointer;
+      }
+
+      .action {
+        border-color: #5bc0de;
+        color: #5bc0de;
+        background-color: transparent;
+        margin-left: 10px;
+      }
+
+      .reset {
+        border-color: #5cb85c;
+        color: #5cb85c;
+        background-color: transparent;
+        margin: 10px 0 0 10px; 
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button type="text" class="btn reset">Reset</button>
+    </div>
+    <div>
+      <button type="text" class="btn action">Action</button>
+    </div>
+    
+    <script>
+      $(function() {
+        let width = 80;
+        let growWidth = () => {
+          width = width * 1.5;
+        };
+
+        $(".action").on("click", function() {
+          growWidth();  // Actionボタンクリックで横幅が1.5倍になる。
+          $(this).animate({width: width});  // 1.5倍になったwidthの値をセット
+        });
+
+        $(".reset").on("click", function() {
+          width = 80;
+          $(".action").animate({width: width});
+        });
+      });
+    </script>
+  </body>
+</html>

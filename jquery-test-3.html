@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery-Test-3</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery-Color -->
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <style>
+      .s10w button {
+        position: relative;
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        border: 0px solid #ae5e9b;
+        border-radius: 50%;
+        box-sizing: border-box;
+        margin: 10px;
+      }
+
+      /* button直下のspanのみ*/
+      .s10w button > span {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        overflow: hidden; /* はみ出た部分が見えなくなっている */
+      }
+
+      /*button２段階下のspan*/
+      .s10w button span span {
+        line-height: 99px;
+        display: block;
+        background-color: #ae5e9b;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
+
+      .s10w button:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <!-- findメソッドを使えば選択した要素の子孫要素を選択できる -->
+    <!-- <div class="parent">
+      <div class="child">
+        <div class="grandson">
+          
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      $(function() {
+        $(".parent").click(function() {
+          $(this).find("grandson").toggleClass("fade");
+        });
+      });
+    </script> -->
+
+    <!-- jQuery-Colorという背景色の変更に必要なプラグインがある(上記head内に貼り付けている) -->
+    <!-- ヒント
+      ・Firstのボタン群は、背景色のみ変更するのみ。
+      ・Secondのボタン群は、ボーダーが出現する。
+      ・Thirdのボタン群は以下の2つを考える
+        ・Thirdにはspanが2つ入れ子で包まれており、1段目のspanはoverflow:hiddenにより、左側に隠されている。
+        ・2段目のspanが通常時表示されており、mouseoverすると1段目のspanの幅がbuttonの幅と同じになり、左から現れたように見える。
+     -->
+  <body>
+    <div class="s10w">
+      <button>First</button>
+      <button>First</button>
+      <button>First</button>
+      <button>Second</button>
+      <button>Second</button>
+      <button>Second</button>
+      <button>
+        Third<span><span>Third</span></span>
+      </button>
+      <button>
+        Third<span><span>Third</span></span>
+      </button>
+      <button>
+        Third<span><span>Third</span></span>
+      </button>
+    </div>
+    
+    <script>
+      $(function() {
+        // 複数の箇所で共通になる、アニメーションの変更時間などの値は変数に格納して使い回すのが良い。
+        let duration = 300,
+        defaultColor = "#3498DB",
+        changeColor = "#ae5e9b",
+        defaultBorderWidth = "0px",
+        changeBorderWidth = "12px";
+        /* First */
+        $("button").on({
+          mouseover: function() {
+            $(this).stop(true).animate({
+              backgroundColor: "#ae5e9b"
+            })
+          },
+          mouseout: function() {
+            $(this).stop(true).animate({
+              backgroundColor: "#3498db"
+            })
+          }
+        });
+        /* Second */
+        // button:nth-child(n+4):nth-child(-n+6)とすると、4番目から6番目までの要素を取得できる。
+        $(".s10w button:nth-child(n+4):nth-child(-n+6)").on({
+          mouseover: function() {
+            $(this).stop(true).animate({
+              borderWidth: changeBorderWidth,
+              color: changeColor,
+              backgroundColor: "white"
+            }, duration);
+          },
+          mouseout: function() {
+            $(this).stop(true).animate({
+              borderWidth: defaultBorderWidth,
+              color: "white",
+              backgroundColor: defaultColor
+            }, duration)
+          }
+        });
+        /* Third */
+        // 7番目から9番目のボタンを取得する。
+        $(".s10w button:nth-child(n+7)").on("mouseover", function() {
+          // find()は、その要素の子孫要素のセレクタを指定できる。">span"なので、一段下のspanのみを指定。
+          $(this).find(">span").stop(true).animate({
+            width: "100%"
+          }, duration);
+          // イベントは.on().on()と各個に繋げて登録することもできる。＠＠
+        }).on("mouseout", function() {
+          $(this).find(">span").stop(true).animate({
+            width: "0%"
+          }, duration)
+        });
+      });
+    </script>
+  </body>
+</html>

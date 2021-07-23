@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery Curriculum CodeShip</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <p style="font-size: 30px;">
+      sample1
+    </p>
+    
+    <p style="font-size: 30px;">
+      sample2
+    </p>
+    
+    <button class="btn" style="font-size: 25px;">
+      Button
+    </button>
+    
+    <script>
+      $(function() {
+        // ここにJQueryのコードを書く
+        // CSSの書き換え
+        // 1つの値を変更するときは
+        // $("セレクタ").css("プロパティ名", "値");
+        
+        // 複数同時に変更するときは
+        /* $("セレクタ").css({
+          プロパティ1: "値1",
+          プロパティ2: "値2",
+          プロパティ3: "値3"
+        }) */
+        
+        // 以下、実例
+          // cssのプロパティ名とその値は、""または ''で囲う
+          // 複数あるpタグのうち1番目のcolorをyellowにする
+          $("p:nth-child(1)").css("color", "yellow");
+
+          // 指定したセレクタに該当するタグが複数存在するとき、それら全てを取得して一括変更できる
+          // btnクラスを持つタグを全て変更する
+          $(".btn").css({
+            fontSize: "50px",
+            // background-colorのような間に"-"が含まられるものは、"-"の直後の文字を大文字にする
+            backgroundColor: "#ae5e9b",
+            color: "#ebc000",
+            transform: "rotate(-10deg)",
+            opacity: "0.7"
+          });
+      });
+    </script>
+  </body>
+</html>

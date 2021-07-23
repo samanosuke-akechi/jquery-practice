@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  border-bottom: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+}
+
+.logo {
+  margin: 0 60px;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+}
+
+.nav-toggle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+span {
+  display: block;
+  height: 5px;
+  width: 40px;
+  margin: 5px 10px;
+  border-radius: 2px;
+  background-color: black;
+  transform: rotate(0deg);
+  transition: all 300ms;
+}
+
+span.open:nth-child(1) {
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+span.open:nth-child(2) {
+  opacity: 0;
+}
+
+span.open:nth-child(3) {
+  position: absolute;
+  transform: rotate(-45deg);
+}
+
+.nav-wrapper {
+  position: fixed;
+  top: 60px;
+  right: -200px;
+  height: 100%;
+  width: 200px;
+  background-color: black;
+  transition: 300ms;
+}
+
+.nav-wrapper.open {
+  right: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  margin: 10%;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+a:hover {
+  background-color: white;
+  color: black;
+}

@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>Animate</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      div {
+        margin: 10px;
+      }
+      .sample-btn {
+        font-size: 16px;
+        color: white;
+        background-color: #3498DB;
+        text-align: center;
+        width: 300px;
+        height: 100px;
+        border: none;
+        border-radius: 30px;
+        margin: auto;
+        transition: 1s
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button class="sample-btn sample-p8-1">Animate</button>
+    </div>
+    <div>
+      <button class="sample-btn sample-p8-2-true">Stop(true)</button>
+      <button class="sample-btn sample-p8-2-false">Stop(false)</button>
+    </div>
+    
+    <script>
+      // animateメソッド
+        // jQueryのanimateメソッドを使えばアニメーションを要素に付加できる。
+        // animateメソッドでは、最終的に変化させたいスタイルと、それにかかる時間をミリ秒で設定する。
+        /* $(セレクタ).animate(
+          {
+            プロパティ: "値",
+            プロパティ: "値"
+          },
+          アニメーションにかかる時間(ミリ秒で)
+        ) */
+        $(function() {
+          $(".sample-p8-1").on({
+            mouseover: function() {
+              $(this).animate({
+                opacity:"0",
+                fontSize: "0"
+              }, 300);
+            },
+            mouseout: function() {
+              $(this).animate({
+                opacity: "1",
+                fontSize: "16"
+              }, 300)
+            }
+          });
+
+          // .animate({}).animate({})で連続的なアニメーションが作れる
+          // デフォルトでは現在のアニメーションはキャンセルされず新しいアニメーションが順番に実行される設定になっているが、jQueryのstop()メソッドで$(セレクタ).stop(true).animate(({}))とすることで現在のアニメーションをキャンセルさせて即実行させることができる。
+          $(".sample-p8-2-true").on({
+            mouseover: function() {
+              $(this).stop(true).animate({
+                width: "600px",
+              }).animate({
+                height: "600px"
+              })
+            },
+            mouseout: function() {
+              $(this).stop(true).animate({
+                width: "300px",
+              }).animate({
+                height: "100px"
+              })
+            }
+          });
+          $(".sample-p8-2-false").on({
+            mouseover: function() {
+              $(this).animate({
+                width: "600px",
+              }).animate({
+                height: "200px"
+              })
+            },
+            mouseout: function() {
+              $(this).animate({
+                width: "300px",
+              }).animate({
+                height: "100px"
+              })
+            }
+          })
+        });
+    </script>
+  </body>
+</html>

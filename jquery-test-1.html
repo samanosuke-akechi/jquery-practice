@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="reset/reset.css">
+    <title>jQuery-Test-1</title>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <!-- HTML及びjQueryのみで、.css()関数を使って実装せよ。cssファイル及びstyleタグは用いないようにせよ -->
+  <!-- 使用するHTMLタグと実装するcssは以下の通り -->
+  <!-- 
+    <div class="sample">
+      Sample
+    </div>
+
+    .sample {
+      background-color: #76d3f4;
+      text-align: center;
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      color: #fff;
+    }
+   -->
+  <body>
+    <div class="sample">
+      Sample
+    </div>
+    <script>
+      $(function(){
+        $(".sample").css({
+          backgroundColor: "#76d3f4",
+          textAlign: "center",
+          width: "300px",
+          margin: "auto",
+          padding: "20px",
+          color: "#fff"
+        });
+      });
+    </script>
+  </body>
+</html>
