@@ -9,6 +9,7 @@ $(function() {
     let $img = $(this).find(".article-image img").attr("src");
     $modal_title.text($title);
     $modal_content.text($content);
-    console.log($img);
+    $modal_img.attr("src", $img);
+    console.log($modal_img.attr("src"));
   })
 })
