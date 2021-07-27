@@ -7,10 +7,12 @@ $(function() {
     let $get_href = $(this).attr("href");
     
     if ($("div" + $get_href).hasClass("is-show")) {
-      console.log("Yes");
       return;
     } else {
-      console.log("No");
+      $("a.is-active").removeClass("is-active");
+      $(this).addClass("is-active");
+      $("div.is-show").removeClass("is-show");
+      $("div" + $get_href).addClass("is-show");
     };
   });
 });
