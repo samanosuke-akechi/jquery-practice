@@ -3,6 +3,7 @@ $(function() {
   let $header_coord = $header.offset();
 
   $(window).on("scroll", function() {
-    console.log("scrolling");
+    let absolute_coord = $("html, body").scrollTop();
+    console.log(absolute_coord);
   })
 })
