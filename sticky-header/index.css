@@ -30,8 +30,14 @@ header {
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
+  /*  以下の2つを指定するだけ(jQueryなし)でもスティッキーヘッダーを実装できる  */
   /* position: sticky;
   top: 0; */
+}
+
+header.active {
+  position: fixed;
+  top: 0;
 }
 
 nav {
