@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+/* header */
+header {
+  display: flex;
+  background: rgb(192, 191, 191);
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  /* position: sticky;
+  top: 0; */
+}
+
+nav {
+  color: #000;
+}
+
+.nav-items {
+  display: flex;
+}
+
+.nav-items li {
+  margin-right: 3rem;
+}
+/* header */
+
+/* コンテンツ */
+.contents {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  place-items: center;
+}
+
+.first {
+  background: rgb(90, 65, 65);
+}
+
+.second {
+  background: rgb(124, 124, 187);
+}
+
+.third {
+  background: rgb(148, 214, 148);
+}
