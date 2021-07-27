@@ -4,6 +4,7 @@ $(function() {
 
   $header_btn.click(function() {
     event.preventDefault();
-    console.log(this);
+    let get_href = $(this).attr("href");
+    console.log(get_href);
   })
 })
