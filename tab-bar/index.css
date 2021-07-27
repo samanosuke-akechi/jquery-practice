@@ -57,6 +57,11 @@ a.is-active {
 .box {
   width: 100%;
   height: calc(100vh - 80px);
+  display: none;
+}
+
+.is-show {
+  display: block;
 }
 
 .box h2 {
