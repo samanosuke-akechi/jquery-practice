@@ -2,6 +2,6 @@ $(function() {
   let $button = $("button");
 
   $button.on("click", function() {
-    console.log("Hello World");
+    $("html, body").animate({scrollTop: 0}, 250);
   })
 })
