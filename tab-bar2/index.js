@@ -3,6 +3,13 @@ $(function() {
 
   $header_btn.click(function() {
     event.preventDefault();
-    console.log(this);
-  })
-})
+    let $get_href = $(this).attr("href");
+    
+    if ($("div" + $get_href).is(":visible")) {
+      console.log("Yes");
+      return;
+    } else {
+      console.log("No");
+    }
+  });
+});
