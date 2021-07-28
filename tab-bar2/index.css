@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+/* header */
+header {
+  display: flex;
+  background: rgb(192, 191, 191);
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+nav {
+  color: #000;
+}
+
+.nav-items {
+  display: flex;
+}
+
+.nav-items li {
+  margin-right: 3rem;
+}
+
+.nav-items a {
+  opacity: 0.3;
+}
+
+a.is-active {
+  opacity: 1;
+}
+
+/* コンテンツ */
+.box {
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+
+.box h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.test1 {
+  background: red;
+}
+
+.test2 {
+  background: yellow;
+}
+
+.test3 {
+  background: blue;
+}
+
+.test4 {
+  background: green;
+}
