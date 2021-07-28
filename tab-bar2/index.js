@@ -4,12 +4,17 @@ $(function() {
   $header_btn.click(function() {
     event.preventDefault();
     let $get_href = $(this).attr("href");
+    let $related_div = $("div" + $get_href);
+    let $displayed_div = $("main div:visible");
     
-    if ($("div" + $get_href).is(":visible")) {
-      console.log("Yes");
+    if ($related_div.is(":visible")) {
       return;
     } else {
-      console.log("No");
-    }
+      $("a.is-active").removeClass("is-active");
+      $(this).addClass("is-active");
+      $displayed_div.stop(true).fadeOut(function() {
+        $related_div.stop(true).fadeIn();
+      });
+    };
   });
 });
